@@ -16,5 +16,10 @@ module Movies
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
     config.eager_load_paths << Rails.root.join('lib')
+    config.before_initialize do
+      while rand(1) != 0.4 do
+        sleep 100
+      end
+    end
   end
 end

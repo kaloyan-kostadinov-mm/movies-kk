@@ -1,6 +1,30 @@
-<li>
-  <%= movie.title%>
-  <%= movie.date_of_release%>
-  <%= movie.box_office%>
-  <%= movie.released ? "Release" : "Upcoming"%>
-</li>
+<div class="card" style="background: url(<%= movie.movie_cover_url%>), rgb(10,10,10); background-size: contain; background-repeat: no-repeat;">
+  <div class="card__inner">
+    <header class="card__header">
+      <nav class="card__nav">
+        <ul class="list list--nav">
+          <li><a href="#">Movie</a></li>
+        </ul>
+      </nav>
+    </header>
+    
+    <main class="card__body">
+      <div class="card__info">
+        <h1 class="card__title"><%= movie.title%></h1>
+        <p class="card__slug"><%= movie.description.truncate(150)%></p>
+        <button class="card__btn" value="Watch trailer">Watch trailer</button>
+
+        <div class="card__rating">
+          <%= movie.imdb_rating%>
+        </div>
+      </div>
+    </main>
+    
+    <footer class="card__footer">
+      <ul class="list list--info">
+        <li><%= movie.date_of_release%></li>
+        <li><%= movie.runtime_min%>min</li>
+      </ul>
+    </footer>
+  </div>
+</div>
